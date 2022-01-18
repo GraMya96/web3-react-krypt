@@ -1,4 +1,3 @@
-import dummyData from '../utlis/dummyData';
 import { useRecoilValue } from "recoil";
 import { shortenAddress } from '../utlis/shortenAddress'
 import { account, transactions } from "../atoms/transactions/transactionsAtom";
