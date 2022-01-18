@@ -48,7 +48,8 @@ export const checkIfWalletIsConnected = async () => {
 
         if (accounts.length === 0) {
             // MetaMask is locked or the user has not connected any accounts
-            console.log('Please connect to MetaMask.');
+            // console.log('Please connect to MetaMask.');
+            return;
         }
         else {
             return accounts[0];
@@ -90,7 +91,8 @@ export const checkIfTransactionsExist = async () => {
         return getAllTransactions();
     }
     catch (error) {
-        throw new Error('No Ethereum Object');
+        console.log(error);
+        throw new Error('No Transations');
     }
 }
 

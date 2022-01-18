@@ -28,8 +28,8 @@ const Welcome = () => {
         }
     }, [ error ])
 
-    const connectWallet = () => {
-        setCurrentAccount( connectWalletFromMetamask() );
+    const connectWallet = async () => {
+        setCurrentAccount( await connectWalletFromMetamask() );
     }
 
     const handleInputChange = ( e ) => {
@@ -53,7 +53,10 @@ const Welcome = () => {
             ( !addressTo || addressTo === '' ) ||
             ( !amount || amount === '' ) ||
             ( !message || message === '' ) ||
-            ( !keyword || keyword === '' ) ) return;
+            ( !keyword || keyword === '' ) ) {
+            setIsLoading(false);
+            return;
+        }
 
         const transactionData = await sendTransaction( currentAccount, addressTo, amount, message, keyword );
 
